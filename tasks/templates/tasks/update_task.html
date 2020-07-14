@@ -1,7 +1,7 @@
 {% include 'tasks/base.html' %}
-<h3>Update Task</h3>
-<form method="POST" action="">
+<h3 style="text-align: center; padding: 10px;">Update Task</h3>
+<form method="POST" action="" style="text-align: center;">
   {% csrf_token %} 
   {{form}}
-  <input type="submit" name="update task" />
+  <input type="submit" name="update task" style="background-color: #A683E3 ;"/>
 </form>

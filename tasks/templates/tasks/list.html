@@ -1,21 +1,24 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {% include 'tasks/base.html' %}
 
 <div class="box">
 <form method="POST" action="/">
   {% csrf_token %} {{form.title}}
-  <input class="btn bg-secondary text-white" type="submit" name="Create Task " />
+  <input class="button" type="submit" name="Create Task " value="+"/>
 </form>
 
 {% for task in tasks %}
 <div class="item">
-  <a href="{% url 'update_task' task.id  %}" class="btn btn-sm bg-warning text-white"> Edit</a>
-  <a href="{% url 'delete' task.id %}" class="btn btn-sm bg-danger text-white">Delete</a>
-
   {% if task.complete == True %}
   <strike>{{task}}</strike>
   {% else %}
   <span>{{task}}</span>
   {% endif %}
+  <a href="{% url 'delete' task.id %}"class="trash-icon text-danger" ><i class="fa fa-trash "></i></a>
+  <a href="{% url 'update_task' task.id  %}" class="edit-icon"> <i class="fa fa-edit"></i></a>
+
+
+
 </div>
 {% endfor %}
 
