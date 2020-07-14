@@ -1,0 +1,7 @@
+{% include 'tasks/base.html' %}
+<p>Are you sure you want to delete <strong>{{item}}</strong> task?</p>
+<a href="{% url 'list' %}">Cancel</a>
+<form method="POST" action="">
+    {% csrf_token %}
+    <input type="submit" name="confirm">
+</form>
